@@ -163,10 +163,15 @@ img {
 }
 
 .header {
-  padding: rem(80) 0;
+  padding: rem(30) 0;
   color: #fff;
   background: url(../images/common/pic_mainvisual.png) no-repeat center
-    bottom/cover;
+    top/cover;
+
+  &-home {
+    padding: rem(80) 0;
+    background-position: center bottom;
+  }
 
   &__inner {
     @include inner();
@@ -175,6 +180,11 @@ img {
       display: grid;
       grid-template-columns: auto auto;
       justify-content: space-between;
+      align-items: center;
+
+      .header-home & {
+        align-items: start;
+      }
     }
   }
 
@@ -243,6 +253,29 @@ img {
 .main {
   &__bg {
     background-color: $color-bg;
+  }
+
+  &__pattern {
+    background: $color-text url(../images/common/bg_paper.png) repeat center top;
+  }
+
+  &__division {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/1;
+    overflow: hidden;
+
+    &::before {
+      position: absolute;
+      bottom: -40%;
+      left: -10%;
+      content: '';
+      display: block;
+      width: 120%;
+      aspect-ratio: 6/1;
+      border-radius: 50% 50% 0 0;
+      background-color: #fff;
+    }
   }
 }
 
@@ -478,6 +511,8 @@ img {
   &__text {
     display: grid;
     row-gap: rem(30);
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
 }
 
@@ -491,6 +526,8 @@ img {
 
   &__title {
     @include title-main();
+    word-break: keep-all;
+    overflow-wrap: anywhere;
 
     &::after {
       content: '';
@@ -504,6 +541,8 @@ img {
 
   &__text {
     margin-bottom: rem(60);
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
 
   &__btn {
@@ -553,8 +592,73 @@ img {
     }
   }
 
+  &__text {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
   &__btn {
     margin-top: rem(30);
     border: 1px solid $color-text;
+  }
+}
+
+// =================================================================
+//  Cemetery
+// =================================================================
+
+#cemetery {
+  background: url(../images/cemetery/pic_cemetery01.jpg) no-repeat center
+    top/cover;
+  background-attachment: fixed;
+}
+
+.guide {
+  padding: 0 0 rem(80);
+  background-color: #fff;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__title {
+    @include title-main();
+  }
+}
+
+.section {
+  padding: rem(80) 0;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__title {
+    @include title-main();
+  }
+}
+
+.features {
+  padding: rem(80) 0;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__title {
+    @include title-main();
+  }
+}
+
+.faq {
+  padding: rem(80) 0;
+  background-color: #fff;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__title {
+    @include title-main();
   }
 }

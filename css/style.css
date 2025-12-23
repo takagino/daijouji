@@ -69,9 +69,13 @@ img {
 }
 
 .header {
-  padding: 5rem 0;
+  padding: 1.875rem 0;
   color: #fff;
-  background: url(../images/common/pic_mainvisual.png) no-repeat center bottom/cover;
+  background: url(../images/common/pic_mainvisual.png) no-repeat center top/cover;
+}
+.header-home {
+  padding: 5rem 0;
+  background-position: center bottom;
 }
 .header__inner {
   max-width: 1200px;
@@ -84,6 +88,10 @@ img {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-between;
+    align-items: center;
+  }
+  .header-home .header__inner {
+    align-items: start;
   }
 }
 .header__content {
@@ -150,6 +158,26 @@ img {
 
 .main__bg {
   background-color: #fff1df;
+}
+.main__pattern {
+  background: #582706 url(../images/common/bg_paper.png) repeat center top;
+}
+.main__division {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/1;
+  overflow: hidden;
+}
+.main__division::before {
+  position: absolute;
+  bottom: -40%;
+  left: -10%;
+  content: "";
+  display: block;
+  width: 120%;
+  aspect-ratio: 6/1;
+  border-radius: 50% 50% 0 0;
+  background-color: #fff;
 }
 
 .calendar {
@@ -385,6 +413,8 @@ img {
 .message__text {
   display: grid;
   row-gap: 1.875rem;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .top-cemetery {
@@ -402,6 +432,8 @@ img {
   font-size: 1.25rem;
   font-weight: 600;
   text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 .top-cemetery__title::after {
   content: "";
@@ -413,6 +445,8 @@ img {
 }
 .top-cemetery__text {
   margin-bottom: 3.75rem;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 .top-cemetery__btn {
   margin-top: 5rem;
@@ -462,8 +496,83 @@ img {
     margin-bottom: 0;
   }
 }
+.top-about__text {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
 .top-about__btn {
   margin-top: 1.875rem;
   border: 1px solid #582706;
+}
+
+#cemetery {
+  background: url(../images/cemetery/pic_cemetery01.jpg) no-repeat center top/cover;
+  background-attachment: fixed;
+}
+
+.guide {
+  padding: 0 0 5rem;
+  background-color: #fff;
+}
+.guide__inner {
+  max-width: 1200px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.guide__title {
+  margin-bottom: 1.875rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.section {
+  padding: 5rem 0;
+}
+.section__inner {
+  max-width: 1200px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section__title {
+  margin-bottom: 1.875rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.features {
+  padding: 5rem 0;
+}
+.features__inner {
+  max-width: 1200px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.features__title {
+  margin-bottom: 1.875rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.faq {
+  padding: 5rem 0;
+  background-color: #fff;
+}
+.faq__inner {
+  max-width: 1200px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.faq__title {
+  margin-bottom: 1.875rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
