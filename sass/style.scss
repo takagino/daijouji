@@ -1,0 +1,523 @@
+@use 'sass:math';
+
+// =================================================================
+//  Variables
+// =================================================================
+
+// --- Spacing ---
+$space-xs: 0.25rem; // 4px
+$space-s: 0.5rem; // 8px
+$space-m: 1rem; // 16px
+$space-l: 1.5rem; // 24px
+$space-xl: 2rem; // 32px
+$space-xxl: 2.5rem; // 40px
+$space-xxxl: 3rem; // 48px
+
+// --- Colors ---
+$color-text: #582706;
+$color-base: #fff;
+$color-main: #915730;
+$color-accent: #d4a973;
+$color-bg: #fff1df;
+
+// --- Typography ---
+$font-size-base: 16;
+$font-family-gothic: 'dnp-shuei-gothic-kin-std', 'Helvetica Neue', Arial,
+  'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', Meiryo, sans-serif;
+$font-family-mincho: 'Times New Roman', Times, 'Hiragino Mincho ProN',
+  'Yu Mincho', 'MS PMincho', serif;
+
+// --- Breakpoints ---
+$breakpoints: (
+  'tablet': 768px,
+  'desktop': 1024px,
+);
+
+// --- Font Awesome ---
+$types: (
+  'free': 'Font Awesome 5 Free',
+  'solid': 'Font Awesome 5 Solid',
+  'regular': 'Font Awesome 5 Regular',
+  'brands': 'Font Awesome 5 Brands',
+  'light': 'Font Awesome 5 Light',
+);
+
+// =================================================================
+//  Functions
+// =================================================================
+
+// pxをremに変換する
+// @param {number} $value - px値
+// @return {string} - rem値
+@function rem($value) {
+  @return #{math.div($value, $font-size-base)}rem;
+}
+
+// Figmaのトラッキング値をemに変換する
+// @param {number} $value - Figmaのトラッキング値
+// @return {string} - em値
+@function ls($value) {
+  @return #{math.div($value, 1000)}em;
+}
+
+// =================================================================
+//  Mixins
+// =================================================================
+
+// メディアクエリ (モバイルファースト)
+// @param {string} $breakpoint - $breakpointsのキー
+@mixin mq($breakpoint: desktop) {
+  @media (width >=map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// インナー幅の指定
+// @param {number} $mw - max-width
+// @param {number} $w  - width
+@mixin inner($mw: 1200px, $w: 90%) {
+  max-width: $mw;
+  width: $w;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin title-main() {
+  margin-bottom: rem(30);
+  font-size: rem(20);
+  font-weight: 600;
+  text-align: center;
+}
+
+@mixin font-icon($size: 16, $weight: 600, $type: free) {
+  font-family: map-get($types, $type);
+  font-weight: $weight;
+  font-size: rem($size);
+}
+
+// =================================================================
+//  Common
+// =================================================================
+html {
+  font-size: rem($font-size-base * 0.875);
+  scroll-behavior: smooth;
+
+  @include mq(tablet) {
+    font-size: rem($font-size-base);
+  }
+}
+
+body {
+  color: $color-text;
+  font-size: rem($font-size-base);
+  font-family: $font-family-gothic;
+  font-weight: 500;
+  line-height: math.div(35, $font-size-base);
+  letter-spacing: ls(350);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+::selection {
+  background-color: $color-accent;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: revert;
+  outline-offset: 2px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: rem(10);
+  padding: rem(20) rem(25);
+  border-radius: 5px;
+  color: $color-text;
+  font-weight: 600;
+  line-height: 1;
+  background-color: #fff;
+
+  &::after {
+    content: '\f061';
+    @include font-icon(16);
+    margin-left: rem(10);
+  }
+}
+
+.header {
+  padding: rem(80) 0;
+  color: #fff;
+  background: url(../images/common/pic_mainvisual.png) no-repeat center
+    bottom/cover;
+
+  &__inner {
+    @include inner();
+
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+    }
+  }
+
+  &__content {
+    display: grid;
+    row-gap: rem(30);
+    text-align: center;
+
+    @include mq(tablet) {
+      row-gap: rem(80);
+    }
+  }
+
+  &__text {
+    width: fit-content;
+    margin: auto;
+    writing-mode: vertical-rl;
+    font-weight: 600;
+    text-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.5);
+  }
+}
+
+.gnav {
+  display: none;
+  writing-mode: vertical-lr;
+
+  @include mq(tablet) {
+    display: block;
+  }
+
+  &__item {
+    &:not(:last-child)::after {
+      content: '';
+      display: block;
+      width: rem(1);
+      height: rem($font-size-base * 4);
+      margin: rem($font-size-base * 2) rem(10);
+      background-color: currentColor;
+    }
+
+    a {
+      display: inline-block;
+      padding: rem(8) rem(15);
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: rem(30);
+  right: rem(20);
+
+  &::after {
+    content: '\f550';
+    display: block;
+    @include font-icon(40);
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  @include mq(tablet) {
+    display: none;
+  }
+}
+
+.main {
+  &__bg {
+    background-color: $color-bg;
+  }
+}
+
+.calendar {
+  padding: rem(100) 0;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__title {
+    @include title-main();
+  }
+
+  iframe {
+    width: 100%;
+    height: rem(600);
+    border: 10px solid $color-main;
+    border-radius: 10px;
+  }
+}
+
+.reserve {
+  padding-bottom: rem(100);
+
+  &__inner {
+    @include inner();
+  }
+
+  &__title {
+    @include title-main();
+  }
+
+  &__list {
+    display: grid;
+    gap: rem(20);
+
+    @include mq(tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: rem(80) rem(40);
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+
+    i {
+      font-size: rem(50);
+    }
+
+    p {
+      margin-top: rem(30);
+    }
+
+    &:not(:last-child)::after {
+      content: '\f358';
+      @include font-icon(40);
+      color: $color-accent;
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      right: auto;
+      left: 50%;
+      transform: translate(-50%, rem(52));
+      z-index: 99;
+
+      @include mq(tablet) {
+        content: '\f35a';
+        top: 50%;
+        bottom: auto;
+        right: 0;
+        left: auto;
+        transform: translate(rem(35), -50%);
+      }
+    }
+  }
+
+  &__btn {
+    display: block;
+    width: rem(300);
+    margin: rem(50) auto rem(100);
+    padding: rem(20) rem(40);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    background-color: $color-accent;
+  }
+}
+
+.footer {
+  padding: rem(100) 0;
+  color: #fff;
+  background: $color-text
+    linear-gradient(0deg, $color-text 0%, $color-main 100%);
+
+  &__inner {
+    @include inner();
+  }
+
+  &__logo {
+    width: rem(150);
+  }
+
+  &__access {
+    margin-bottom: rem(100);
+
+    &-title {
+      @include title-main();
+    }
+
+    &-map {
+      iframe {
+        width: 100%;
+        height: rem(400);
+      }
+    }
+
+    &-item {
+      margin-top: rem(50);
+
+      dt {
+        width: fit-content;
+        margin-bottom: rem(20);
+        padding: 0 rem(20);
+        border-radius: 30px;
+        background-color: #fff;
+        color: $color-text;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__bottom {
+    margin-bottom: rem(100);
+
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      align-items: end;
+    }
+  }
+
+  &__address {
+    margin-top: rem(20);
+  }
+
+  &__nav {
+    width: fit-content;
+    margin: rem(80) 0 0;
+
+    &-item {
+      & a::before {
+        content: 'ー';
+        margin-right: rem(10);
+      }
+    }
+
+    &-contact {
+      margin-top: rem(20);
+      &::before {
+        content: '\f0e0';
+        @include font-icon(16, 400);
+        margin-right: rem(10);
+      }
+    }
+  }
+
+  &__copy {
+    text-align: center;
+  }
+}
+
+// =================================================================
+//  Index
+// =================================================================
+
+.message {
+  padding: rem(80) 0;
+  text-align: center;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__title {
+    @include title-main();
+
+    &::after {
+      display: block;
+      content: '\f18c';
+      @include font-icon(40, 400, brands);
+      width: fit-content;
+      margin: auto;
+      transform: rotate(75deg);
+    }
+  }
+
+  &__text {
+    display: grid;
+    row-gap: rem(30);
+  }
+}
+
+.top-cemetery {
+  padding: rem(120) 0 0;
+  text-align: center;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__title {
+    @include title-main();
+
+    &::after {
+      content: '';
+      display: block;
+      width: rem(200);
+      height: rem(1);
+      margin: rem(50) auto;
+      background-color: $color-text;
+    }
+  }
+
+  &__text {
+    margin-bottom: rem(60);
+  }
+
+  &__btn {
+    margin-top: rem(80);
+  }
+
+  &__img {
+    display: block;
+    width: clamp(rem(200), 50%, rem(276));
+    margin: rem(80) auto 0;
+    transform: translateY(8%);
+  }
+}
+
+.top-about {
+  display: grid;
+  row-gap: rem(100);
+  padding: rem(120) 0;
+
+  &__inner {
+    @include inner();
+
+    @include mq(tablet) {
+      display: grid;
+      grid-template-columns: 340fr 570fr;
+    }
+  }
+
+  &__item:nth-child(even) &__pic {
+    margin-left: auto;
+  }
+
+  &__pic {
+    display: block;
+    margin-bottom: rem(50);
+  }
+
+  &__title {
+    width: fit-content;
+    margin: 0 auto rem(50);
+    writing-mode: vertical-rl;
+    font-size: rem(20);
+    font-weight: 600;
+
+    @include mq(tablet) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__btn {
+    margin-top: rem(30);
+    border: 1px solid $color-text;
+  }
+}
