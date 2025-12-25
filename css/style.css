@@ -1,6 +1,6 @@
 @charset "UTF-8";
 html {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   scroll-behavior: smooth;
 }
 @media (width >= 768px) {
@@ -406,8 +406,8 @@ img {
   font-weight: 600;
   font-size: 1.875rem;
   position: absolute;
-  top: 50%;
-  right: -15px;
+  bottom: 0;
+  right: -0.9375rem;
   color: #915730;
   line-height: 1;
   transform: translateY(-50%);
@@ -449,8 +449,8 @@ img {
   font-weight: 600;
   font-size: 1.875rem;
   position: absolute;
-  top: 50%;
-  left: -10px;
+  bottom: 0;
+  left: -0.625rem;
   color: #d4a973;
   line-height: 1;
   transform: translateY(-50%);
@@ -525,7 +525,7 @@ img {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 5rem 0 0;
+  margin: 3.125rem 0 0;
 }
 .footer__nav-item a::before {
   content: "ー";
@@ -695,9 +695,14 @@ img {
   background-color: #fff;
 }
 .cemetery__header {
-  padding: 5rem 0 25rem;
+  padding: 5rem 0 12.5rem;
   background: #fff url(../images/cemetery/pic_cemetery02.png) repeat center bottom/cover;
   text-align: center;
+}
+@media (width >= 768px) {
+  .cemetery__header {
+    padding-bottom: 18.75rem;
+  }
 }
 .cemetery__inner {
   max-width: 1200px;
@@ -721,9 +726,8 @@ img {
 }
 
 .guide {
+  padding: 5rem 0;
   color: #fff;
-  position: relative;
-  z-index: 99;
 }
 .guide__inner {
   max-width: 1200px;
@@ -739,13 +743,13 @@ img {
   word-break: keep-all;
   overflow-wrap: anywhere;
   position: absolute;
-  top: 5rem;
+  top: 0;
   left: 0;
   z-index: 99;
   text-align: left;
 }
 .guide__title::after {
-  content: "マップはスクロールできます。";
+  content: "マップは横にスクロールできます。";
   display: block;
   font-size: 1rem;
 }
@@ -758,11 +762,10 @@ img {
   max-width: 75rem;
   margin: auto;
   overflow-x: auto;
-  transform: translateY(-6%);
 }
 .guide__map-inner {
   width: 75rem;
-  padding: 0 3.125rem 3.125rem;
+  padding: 0rem 3.125rem 1.875rem;
   position: relative;
 }
 .guide__map-item {
@@ -1022,7 +1025,7 @@ img {
 .details__item {
   display: grid;
   grid-template-columns: 7em 1fr;
-  gap: 3.125rem;
+  gap: 2.5rem;
   align-items: center;
   margin-bottom: 1.875rem;
   padding: 0 1.875rem 1.875rem;
@@ -1051,6 +1054,8 @@ img {
   margin-bottom: 1.875rem;
   font-size: 1.25rem;
   text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
   word-break: keep-all;
   overflow-wrap: anywhere;
 }

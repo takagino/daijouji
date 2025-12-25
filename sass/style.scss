@@ -130,7 +130,7 @@ $types: (
 //  Common
 // =================================================================
 html {
-  font-size: rem($font-size-base * 0.875);
+  font-size: rem($font-size-base * 0.75);
   scroll-behavior: smooth;
 
   @include mq(tablet) {
@@ -519,8 +519,8 @@ img {
         display: inline-block;
         @include font-icon(30);
         position: absolute;
-        top: 50%;
-        right: -15px;
+        bottom: 0;
+        right: rem(-15);
         color: $color-main;
         line-height: 1;
         transform: translateY(-50%);
@@ -558,8 +558,8 @@ img {
         display: inline-block;
         @include font-icon(30);
         position: absolute;
-        top: 50%;
-        left: -10px;
+        bottom: 0;
+        left: rem(-10);
         color: $color-accent;
         line-height: 1;
         transform: translateY(-50%);
@@ -639,7 +639,7 @@ img {
 
   &__nav {
     width: fit-content;
-    margin: rem(80) 0 0;
+    margin: rem(50) 0 0;
 
     &-item {
       & a::before {
@@ -798,10 +798,14 @@ img {
   }
 
   &__header {
-    padding: rem(80) 0 rem(400);
+    padding: rem(80) 0 rem(200);
     background: #fff url(../images/cemetery/pic_cemetery02.png) repeat center
       bottom/cover;
     text-align: center;
+
+    @include mq(tablet) {
+      padding-bottom: rem(300);
+    }
   }
 
   &__inner {
@@ -819,9 +823,8 @@ img {
 }
 
 .guide {
+  padding: rem(80) 0;
   color: #fff;
-  position: relative;
-  z-index: 99;
 
   &__inner {
     @include inner();
@@ -831,13 +834,13 @@ img {
   &__title {
     @include title-sub();
     position: absolute;
-    top: rem(80);
+    top: 0;
     left: 0;
     z-index: 99;
     text-align: left;
 
     &::after {
-      content: 'マップはスクロールできます。';
+      content: 'マップは横にスクロールできます。';
       display: block;
       font-size: rem(16);
 
@@ -851,11 +854,10 @@ img {
     max-width: rem(1200);
     margin: auto;
     overflow-x: auto;
-    transform: translateY(-6%);
 
     &-inner {
       width: rem(1200);
-      padding: 0 rem(50) rem(50);
+      padding: rem(0) rem(50) rem(30);
       position: relative;
     }
 
@@ -1123,7 +1125,7 @@ img {
   &__item {
     display: grid;
     grid-template-columns: 7em 1fr;
-    gap: rem(50);
+    gap: rem(40);
     align-items: center;
     margin-bottom: rem(30);
     padding: 0 rem(30) rem(30);
@@ -1159,6 +1161,8 @@ img {
 
     &-title {
       @include title-sub();
+      word-break: keep-all;
+      overflow-wrap: anywhere;
 
       span {
         display: block;
