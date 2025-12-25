@@ -19,6 +19,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body.is-open {
+  overflow: hidden;
+}
 
 img {
   max-width: 100%;
@@ -39,6 +42,12 @@ img {
 :focus-visible {
   outline: revert;
   outline-offset: 2px;
+}
+
+.is-resizing *,
+.is-resizing *::before,
+.is-resizing *::after {
+  transition: none !important;
 }
 
 .btn {
@@ -103,7 +112,15 @@ img {
     row-gap: 5rem;
   }
 }
+.header__logo {
+  width: 7.5rem;
+  margin: auto;
+}
+.header-home .header__logo {
+  width: 9.375rem;
+}
 .header__text {
+  display: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -111,14 +128,44 @@ img {
   writing-mode: vertical-rl;
   text-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.5);
 }
+.header-home .header__text {
+  display: block;
+}
 
 .gnav {
-  display: none;
   writing-mode: vertical-lr;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.125rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+.is-open .gnav {
+  opacity: 1;
+  visibility: visible;
 }
 @media (width >= 768px) {
   .gnav {
-    display: block;
+    position: static;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+}
+.gnav__logo {
+  width: 9.375rem;
+}
+@media (width >= 768px) {
+  .gnav__logo {
+    display: none;
   }
 }
 .gnav__item:not(:last-child)::after {
@@ -138,6 +185,13 @@ img {
   position: fixed;
   top: 1.875rem;
   right: 1.25rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  cursor: pointer;
 }
 .menu::after {
   content: "\f550";
@@ -147,6 +201,9 @@ img {
   font-size: 2.5rem;
   line-height: 1;
   cursor: pointer;
+}
+.is-open .menu::after {
+  content: "\f00d";
 }
 @media (width >= 768px) {
   .menu {

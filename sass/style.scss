@@ -147,6 +147,10 @@ body {
   letter-spacing: ls(350);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  &.is-open {
+    overflow: hidden;
+  }
 }
 
 img {
@@ -163,6 +167,14 @@ img {
 :focus-visible {
   outline: revert;
   outline-offset: 2px;
+}
+
+.is-resizing {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
 }
 
 .btn {
@@ -228,20 +240,63 @@ img {
     }
   }
 
+  &__logo {
+    width: rem(120);
+    margin: auto;
+
+    .header-home & {
+      width: rem(150);
+    }
+  }
+
   &__text {
+    display: none;
     width: fit-content;
     margin: auto;
     writing-mode: vertical-rl;
     text-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.5);
+
+    .header-home & {
+      display: block;
+    }
   }
 }
 
 .gnav {
-  display: none;
   writing-mode: vertical-lr;
 
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(50);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+
+  .is-open & {
+    opacity: 1;
+    visibility: visible;
+  }
+
   @include mq(tablet) {
-    display: block;
+    position: static;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+
+  &__logo {
+    width: rem(150);
+
+    @include mq(tablet) {
+      display: none;
+    }
   }
 
   &__item {
@@ -265,6 +320,13 @@ img {
   position: fixed;
   top: rem(30);
   right: rem(20);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(44);
+  height: rem(44);
+  cursor: pointer;
 
   &::after {
     content: '\f550';
@@ -272,6 +334,10 @@ img {
     @include font-icon(40);
     line-height: 1;
     cursor: pointer;
+  }
+
+  .is-open &::after {
+    content: '\f00d';
   }
 
   @include mq(tablet) {

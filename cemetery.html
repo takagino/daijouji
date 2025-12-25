@@ -49,20 +49,34 @@
     <header class="header">
       <div class="header__inner">
         <div class="header__content">
-          <p class="header__logo">
-            <a href="index.html"
-              ><img src="./images/common/img_logo.png" alt="明照山 大乗寺"
-            /></a>
-          </p>
+          <h1 class="header__logo">
+            <a href="index.html">
+              <img src="./images/common/img_logo.png" alt="明照山 大乗寺" />
+            </a>
+          </h1>
+          <div class="header__text">
+            <p>自然の恵みに抱かれて眠る、<br />安らぎの聖地。</p>
+          </div>
         </div>
-        <nav class="gnav">
+        <nav class="gnav" id="gnav">
+          <div class="gnav__logo">
+            <a href="index.html">
+              <img src="./images/common/img_logo.png" alt="明照山 大乗寺" />
+            </a>
+          </div>
+
           <ul class="gnav__list">
             <li class="gnav__item"><a href="cemetery.html">霊園のご案内</a></li>
             <li class="gnav__item"><a href="prayer.html">ご祈祷・ご供養</a></li>
             <li class="gnav__item"><a href="contact.html">お問い合わせ</a></li>
           </ul>
         </nav>
-        <button class="menu"></button>
+        <button
+          class="menu js-hamburger"
+          aria-controls="gnav"
+          aria-expanded="false"
+          aria-label="メニューを開く"
+        ></button>
       </div>
     </header>
     <main class="main">
@@ -346,5 +360,6 @@
         </div>
       </div>
     </footer>
+    <script src="./js/script.js"></script>
   </body>
 </html>
