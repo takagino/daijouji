@@ -1294,6 +1294,13 @@ img {
   &__title {
     @include title-sub();
   }
+
+  iframe {
+    width: 100%;
+    height: rem(600);
+    border: 10px solid $color-main;
+    border-radius: 10px;
+  }
 }
 
 .caution {
@@ -1311,5 +1318,60 @@ img {
 
   &__text {
     margin-bottom: rem(30);
+    position: relative;
+
+    &-title {
+      position: relative;
+
+      &::after {
+        display: block;
+        content: '';
+        width: 100%;
+        border-bottom: 1px solid $color-text;
+        position: absolute;
+        top: 50%;
+        left: 0;
+      }
+
+      span {
+        padding-right: rem(10);
+        background-color: $color-bg;
+        position: relative;
+        z-index: 10;
+      }
+    }
+
+    &-text {
+      @include text-main();
+    }
+
+    &-body {
+      margin-top: rem(80);
+      padding: rem(50) rem(50) rem(30) rem(50);
+      background-color: $color-bg;
+
+      @include mq(tablet) {
+        margin-top: rem(50);
+        margin-left: rem(50);
+        padding-left: rem(80);
+      }
+    }
+
+    &-img {
+      width: rem(120);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: rem(20);
+      border-radius: 50%;
+      background-color: $color-bg;
+
+      @include mq(tablet) {
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+      }
+    }
   }
 }
