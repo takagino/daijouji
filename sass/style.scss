@@ -267,8 +267,8 @@ img {
 
   position: fixed;
   inset: 0;
-  z-index: 90;
-  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   display: flex;
   justify-content: center;
@@ -312,7 +312,16 @@ img {
     a {
       display: inline-block;
       padding: rem(8) rem(15);
+      transition: 0.2s;
+
+      &:hover {
+        color: $color-accent;
+      }
     }
+  }
+
+  &__active {
+    color: $color-accent;
   }
 }
 
@@ -320,7 +329,7 @@ img {
   position: fixed;
   top: rem(30);
   right: rem(20);
-  z-index: 100;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
