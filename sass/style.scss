@@ -126,59 +126,6 @@ $types: (
   font-size: rem($size);
 }
 
-@mixin octagon() {
-  position: relative;
-
-  &::before,
-  &::after {
-    content: '';
-    width: 0;
-    height: 0;
-    border: 35px solid transparent;
-    border-top-color: currentColor;
-    position: absolute;
-  }
-
-  &::before {
-    top: 0;
-    left: 0;
-    border-left-color: currentColor;
-  }
-
-  &::after {
-    top: 0;
-    right: 0;
-    border-right-color: currentColor;
-  }
-
-  &-inner {
-    position: relative;
-    z-index: 1;
-
-    &::before,
-    &::after {
-      content: '';
-      width: 0;
-      height: 0;
-      border: 35px solid transparent;
-      border-bottom-color: currentColor;
-      position: absolute;
-    }
-
-    &::before {
-      bottom: 0;
-      left: 0;
-      border-left-color: currentColor;
-    }
-
-    &::after {
-      bottom: 0;
-      right: 0;
-      border-right-color: currentColor;
-    }
-  }
-}
-
 // =================================================================
 //  Common
 // =================================================================
@@ -1140,7 +1087,7 @@ img {
 
       span {
         display: block;
-        font-size: rem(16);
+        font-size: rem(14);
       }
     }
 
@@ -1210,6 +1157,37 @@ img {
   &__text {
     @include text-main();
   }
+
+  &__info {
+    clip-path: polygon(
+      5% 0%,
+      95% 0%,
+      100% 20%,
+      100% 80%,
+      95% 100%,
+      5% 100%,
+      0% 80%,
+      0% 20%
+    );
+
+    padding: rem(50);
+    border: 2px solid #fff;
+    color: #fff;
+
+    &-title {
+      @include title-sub();
+      margin-bottom: 0;
+
+      span {
+        display: block;
+        font-size: rem(14);
+      }
+    }
+
+    &-text {
+      @include text-main();
+    }
+  }
 }
 
 .other {
@@ -1269,12 +1247,17 @@ img {
 
   .calendar {
     @include inner();
+    margin-bottom: rem(50);
     padding: rem(30) rem(50);
     border-radius: 10px;
     background-color: #fff;
 
     &__inner {
       width: 100%;
+    }
+
+    &__title {
+      @include title-sub();
     }
   }
 }
@@ -1296,5 +1279,37 @@ img {
       padding: rem(50) rem(100);
       background-color: #fff;
     }
+  }
+}
+
+.form {
+  &__inner {
+    @include inner();
+    margin-bottom: rem(50);
+    padding: rem(30) rem(50);
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  &__title {
+    @include title-sub();
+  }
+}
+
+.caution {
+  &__inner {
+    @include inner();
+    margin-bottom: rem(50);
+    padding: rem(30) rem(50);
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  &__title {
+    @include title-sub();
+  }
+
+  &__text {
+    margin-bottom: rem(30);
   }
 }

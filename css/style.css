@@ -992,7 +992,7 @@ img {
 }
 .details__info-title span {
   display: block;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 .details__info-text {
   display: grid;
@@ -1073,6 +1073,31 @@ img {
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
+.flow__info {
+  -webkit-clip-path: polygon(5% 0%, 95% 0%, 100% 20%, 100% 80%, 95% 100%, 5% 100%, 0% 80%, 0% 20%);
+          clip-path: polygon(5% 0%, 95% 0%, 100% 20%, 100% 80%, 95% 100%, 5% 100%, 0% 80%, 0% 20%);
+  padding: 3.125rem;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.flow__info-title {
+  margin-bottom: 1.875rem;
+  font-size: 1.25rem;
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  margin-bottom: 0;
+}
+.flow__info-title span {
+  display: block;
+  font-size: 0.875rem;
+}
+.flow__info-text {
+  display: grid;
+  row-gap: 1.25rem;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
 
 .other {
   padding: 7.5rem 0 5rem;
@@ -1148,12 +1173,20 @@ img {
   width: 88%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 3.125rem;
   padding: 1.875rem 3.125rem;
   border-radius: 10px;
   background-color: #fff;
 }
 #contact .calendar__inner {
   width: 100%;
+}
+#contact .calendar__title {
+  margin-bottom: 1.875rem;
+  font-size: 1.25rem;
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .contact__header {
@@ -1175,5 +1208,44 @@ img {
   width: fit-content;
   padding: 3.125rem 6.25rem;
   background-color: #fff;
+}
+
+.form__inner {
+  max-width: 1200px;
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3.125rem;
+  padding: 1.875rem 3.125rem;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.form__title {
+  margin-bottom: 1.875rem;
+  font-size: 1.25rem;
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.caution__inner {
+  max-width: 1200px;
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3.125rem;
+  padding: 1.875rem 3.125rem;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.caution__title {
+  margin-bottom: 1.875rem;
+  font-size: 1.25rem;
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.caution__text {
+  margin-bottom: 1.875rem;
 }
 /*# sourceMappingURL=style.css.map */
