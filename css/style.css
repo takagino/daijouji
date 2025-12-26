@@ -22,6 +22,9 @@ body {
 body.is-open {
   overflow: hidden;
 }
+body.popup-open {
+  overflow: hidden;
+}
 
 img {
   max-width: 100%;
@@ -918,8 +921,122 @@ nav a:hover,
 .special .guide__map-name:hover {
   background-color: #dabf4a;
 }
-.guide__map-info {
-  display: none;
+.guide__map .guide__map-info {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  padding: 1.25rem;
+}
+.guide__map .guide__map-info.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup {
+  background-color: #fff;
+  border-radius: 1.25rem;
+  width: 100%;
+  max-width: 50rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem 1.875rem;
+  position: relative;
+  color: #582706;
+  text-align: center;
+  /* 画像スライダー部分の仮スタイル */
+}
+@media (width >= 768px) {
+  .popup {
+    padding: 3.75rem 5rem;
+  }
+}
+.popup__lead {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.1em;
+}
+.popup__title {
+  display: inline-block;
+  background-color: #888;
+  color: #fff;
+  padding: 0.3125rem 1.875rem;
+  margin-bottom: 1.875rem;
+}
+.surya .popup__title {
+  background-color: #cf383a;
+}
+.general .popup__title {
+  background-color: #54b662;
+}
+.vihara .popup__title {
+  background-color: #9d5ca2;
+}
+.interment .popup__title {
+  background-color: #386fcf;
+}
+.dammar .popup__title {
+  background-color: #945830;
+}
+.special .popup__title {
+  background-color: #e3ce74;
+}
+.popup__slide {
+  position: relative;
+  margin-bottom: 1.875rem;
+  background-color: #ddd;
+  aspect-ratio: 16/9;
+}
+.popup__slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.popup__slide::before, .popup__slide::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.popup__slide::before {
+  left: -1.25rem;
+}
+.popup__slide::after {
+  right: -1.25rem;
+  transform: translateY(-50%) rotate(180deg);
+}
+.popup__text {
+  text-align: left;
+  line-height: 2;
+  font-size: 0.9375rem;
+  margin-bottom: 2.5rem;
+}
+.popup__close {
+  background-color: #888;
+  color: #fff;
+  padding: 0.75rem 3.75rem;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.popup__close:hover {
+  background-color: #666;
 }
 
 .features {

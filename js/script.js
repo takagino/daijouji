@@ -44,4 +44,37 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.setAttribute('aria-expanded', 'false');
     }
   });
+
+  const mapNames = document.querySelectorAll('.guide__map-name');
+
+  mapNames.forEach((name) => {
+    name.addEventListener('click', () => {
+      // 隣り合う .guide__map-info を取得
+      const info = name.nextElementSibling;
+      if (info && info.classList.contains('guide__map-info')) {
+        info.classList.add('is-active');
+        body.classList.add('popup-open');
+      }
+    });
+  });
+
+  // 全ての .guide__map-info に対して閉じる処理を設定
+  const mapInfos = document.querySelectorAll('.guide__map-info');
+  mapInfos.forEach((info) => {
+    const closeBtn = info.querySelector('.popup__close');
+
+    // 閉じるボタンをクリック
+    closeBtn.addEventListener('click', () => {
+      info.classList.remove('is-active');
+      body.classList.remove('popup-open');
+    });
+
+    // 背景（黒い部分）をクリックしても閉じる
+    info.addEventListener('click', (e) => {
+      if (e.target === info) {
+        info.classList.remove('is-active');
+        body.classList.remove('popup-open');
+      }
+    });
+  });
 });
