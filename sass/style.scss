@@ -126,6 +126,9 @@ $types: (
   font-size: rem($size);
 }
 
+$corner-size: rem(20);
+$arrow-size: rem(20);
+
 // =================================================================
 //  Common
 // =================================================================
@@ -159,6 +162,24 @@ img {
   vertical-align: bottom;
 }
 
+a {
+  text-decoration: underline;
+  transition: 0.2s;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+nav a,
+.btn {
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
 ::selection {
   background-color: $color-accent;
   color: #fff;
@@ -184,6 +205,7 @@ img {
   border-radius: 5px;
   color: $color-text;
   line-height: 1;
+  text-align: center;
   background-color: #fff;
   transition: 0.2s;
 
@@ -312,7 +334,6 @@ img {
     a {
       display: inline-block;
       padding: rem(8) rem(15);
-      transition: 0.2s;
 
       &:hover {
         color: $color-accent;
@@ -336,6 +357,12 @@ img {
   width: rem(44);
   height: rem(44);
   cursor: pointer;
+  color: $color-accent;
+  transition: 0.2s;
+
+  &:hover {
+    color: darken($color-accent, 20%);
+  }
 
   &::after {
     content: '\f550';
@@ -361,6 +388,11 @@ img {
 
   &__pattern {
     background: $color-text url(../images/common/bg_paper.png) repeat center top;
+
+    &-white {
+      background-color: #fff;
+      background-image: url(../images/common/bg_paper02.png);
+    }
   }
 }
 
@@ -450,12 +482,8 @@ img {
     max-width: rem(300);
     margin: rem(50) auto rem(100);
     padding: rem(20) rem(40);
-    border-radius: 5px;
     color: #fff;
-    line-height: 1;
-    text-align: center;
     background-color: $color-accent;
-    transition: 0.2s;
 
     &::after {
       display: inline-block;
@@ -642,9 +670,15 @@ img {
     margin: rem(50) 0 0;
 
     &-item {
-      & a::before {
-        content: 'ー';
-        margin-right: rem(10);
+      & a {
+        &:hover {
+          color: $color-accent;
+        }
+
+        &::before {
+          content: 'ー';
+          margin-right: rem(10);
+        }
       }
     }
 
@@ -1145,19 +1179,32 @@ img {
   }
 
   &__info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(50) rem(80);
+    background-color: $color-text;
+
     clip-path: polygon(
-      5% 0%,
-      95% 0%,
-      100% 20%,
-      100% 80%,
-      95% 100%,
-      5% 100%,
-      0% 80%,
-      0% 20%
+      $corner-size 0%,
+      calc(100% - #{$corner-size}) 0%,
+      100% $corner-size,
+      100% calc(100% - #{$corner-size}),
+      calc(100% - #{$corner-size}) 100%,
+      $corner-size 100%,
+      0% calc(100% - #{$corner-size}),
+      0% $corner-size
     );
 
-    padding: rem(50) rem(80);
-    border: 2px solid $color-text;
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      z-index: -1;
+      background-color: #fff;
+      clip-path: inherit;
+    }
 
     &-title {
       @include title-sub();
@@ -1237,21 +1284,113 @@ img {
     @include text-main();
   }
 
-  &__info {
+  &__list {
+    display: grid;
+    margin-bottom: rem(50);
+
+    @include mq(desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__item {
+    background-color: #fff;
+    padding: rem(50);
+
     clip-path: polygon(
-      5% 0%,
-      95% 0%,
-      100% 20%,
-      100% 80%,
-      95% 100%,
-      5% 100%,
-      0% 80%,
-      0% 20%
+      0% 0,
+      50% $arrow-size,
+      100% 0,
+      100% calc(100% - #{$arrow-size}),
+      50% 100%,
+      0% calc(100% - #{$arrow-size})
     );
 
-    padding: rem(50);
-    border: 2px solid #fff;
+    &:first-child {
+      padding-top: rem(40);
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% - #{$arrow-size}),
+        50% 100%,
+        0% calc(100% - #{$arrow-size})
+      );
+    }
+
+    &:last-child {
+      padding-bottom: rem(40);
+      clip-path: polygon(0% 0, 50% $arrow-size, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    @include mq(desktop) {
+      padding: rem(30) rem(60);
+
+      clip-path: polygon(
+        calc(100% - #{$arrow-size}) 0%,
+        100% 50%,
+        calc(100% - #{$arrow-size}) 100%,
+        0% 100%,
+        #{$arrow-size} 50%,
+        0% 0%
+      );
+
+      &:first-child {
+        padding-left: rem(40);
+        clip-path: polygon(
+          calc(100% - #{$arrow-size}) 0%,
+          100% 50%,
+          calc(100% - #{$arrow-size}) 100%,
+          0% 100%,
+          0% 0%
+        );
+      }
+
+      &:last-child {
+        padding-right: rem(40);
+        clip-path: polygon(
+          100% 0%,
+          100% 100%,
+          0% 100%,
+          #{$arrow-size} 50%,
+          0% 0%
+        );
+      }
+    }
+
+    &-title {
+      @include title-sub();
+    }
+  }
+
+  &__info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(40) rem(20);
+    background-color: #fff;
     color: #fff;
+
+    clip-path: polygon(
+      $corner-size 0%,
+      calc(100% - #{$corner-size}) 0%,
+      100% $corner-size,
+      100% calc(100% - #{$corner-size}),
+      calc(100% - #{$corner-size}) 100%,
+      $corner-size 100%,
+      0% calc(100% - #{$corner-size}),
+      0% $corner-size
+    );
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      z-index: -1;
+      background: $color-main url('../images/common/bg_paper.png') no-repeat
+        center / cover;
+      clip-path: inherit;
+    }
 
     &-title {
       @include title-sub();
@@ -1313,6 +1452,71 @@ img {
 
     &-text {
       @include text-main();
+    }
+  }
+}
+
+.reserve-info {
+  padding: rem(80) 0;
+  text-align: center;
+
+  &__inner {
+    @include inner();
+  }
+
+  &__title {
+    @include title-main();
+  }
+
+  &__text {
+    @include text-main();
+    margin-bottom: rem(50);
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: rem(30) rem(10);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    width: 100%;
+    max-width: rem(400);
+    margin: auto;
+    padding: rem(40);
+    border: 1px solid $color-text;
+    border-radius: 50%;
+    background-color: #fff;
+
+    @include mq(tablet) {
+      width: 40%;
+    }
+
+    @include mq(desktop) {
+      width: 30%;
+    }
+
+    dt {
+      @include title-main();
+      font-size: rem(16);
+
+      &::after {
+        margin: rem(10) auto;
+      }
+    }
+
+    dd {
+      @include text-main();
+    }
+
+    dd:has(a) {
+      display: block;
     }
   }
 }
@@ -1401,6 +1605,7 @@ img {
 
     &-title {
       position: relative;
+      margin-bottom: rem(20);
 
       &::after {
         display: block;
@@ -1426,7 +1631,7 @@ img {
 
     &-body {
       margin-top: rem(80);
-      padding: rem(50) rem(50) rem(30) rem(50);
+      padding: rem(50);
       background-color: $color-bg;
 
       @include mq(tablet) {
