@@ -247,7 +247,7 @@ nav a:hover,
   background-color: #fff1df;
 }
 .main__pattern {
-  background: #582706 url(../images/common/bg_paper.png) repeat center top;
+  background: #582706 url(../images/common/bg_paper01.png) repeat center top;
 }
 .main__pattern-white {
   background-color: #fff;
@@ -575,13 +575,21 @@ nav a:hover,
 
 .message {
   padding: 5rem 0;
-  text-align: center;
 }
 .message__inner {
   max-width: 1200px;
   width: 88%;
   margin-left: auto;
   margin-right: auto;
+  display: grid;
+  gap: 3.125rem;
+}
+@media (width >= 1200px) {
+  .message__inner {
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    align-items: center;
+  }
 }
 .message__title {
   margin-bottom: 1.875rem;
@@ -607,6 +615,16 @@ nav a:hover,
   row-gap: 1.25rem;
   word-break: keep-all;
   overflow-wrap: anywhere;
+  text-align: center;
+}
+@media (width >= 1200px) {
+  .message__text {
+    text-align: left;
+  }
+}
+.message__pic {
+  max-width: 25rem;
+  margin: auto;
 }
 
 .top-cemetery {
@@ -641,6 +659,12 @@ nav a:hover,
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
+.top-cemetery__pic {
+  width: 100%;
+  aspect-ratio: 12/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .top-cemetery__btn {
   margin-top: 5rem;
 }
@@ -671,9 +695,25 @@ nav a:hover,
 .top-about__item:nth-child(even) .top-about__pic {
   margin-left: auto;
 }
-.top-about__pic {
-  display: block;
+.top-about__pic01 {
+  width: 80%;
+  max-width: 75rem;
+  aspect-ratio: 12/3;
+  -o-object-fit: cover;
+     object-fit: cover;
   margin-bottom: 3.125rem;
+  box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.3);
+}
+.top-about__pic02 {
+  display: block;
+  width: 80%;
+  max-width: 75rem;
+  margin-left: auto;
+  aspect-ratio: 12/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 3.125rem;
+  box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.3);
 }
 .top-about__title {
   width: -webkit-fit-content;
@@ -724,7 +764,7 @@ nav a:hover,
 }
 .cemetery__header {
   padding: 5rem 0 12.5rem;
-  background: #fff url(../images/cemetery/pic_cemetery02.png) repeat center bottom/cover;
+  background: #fff url(../images/cemetery/pic_cemetery02.png) no-repeat center bottom/cover;
   text-align: center;
 }
 @media (width >= 768px) {
@@ -996,29 +1036,9 @@ nav a:hover,
 }
 .popup__slide img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4/3;
   -o-object-fit: cover;
      object-fit: cover;
-}
-.popup__slide::before, .popup__slide::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 50%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.popup__slide::before {
-  left: -1.25rem;
-}
-.popup__slide::after {
-  right: -1.25rem;
-  transform: translateY(-50%) rotate(180deg);
 }
 .popup__text {
   text-align: left;
@@ -1077,6 +1097,18 @@ nav a:hover,
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
+.features__item-text {
+  display: grid;
+  row-gap: 1.25rem;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.features__item-label {
+  padding: 0.3125rem 0.625rem;
+  background-color: #582706;
+  color: #fff;
+  text-align: center;
+}
 .features__icon {
   width: 6.25rem;
   height: 6.25rem;
@@ -1090,7 +1122,7 @@ nav a:hover,
 }
 
 .prayer__header {
-  background: url(../images/top/pic_top_about01.png) no-repeat center/cover;
+  background: url(../images/prayer/pic_prayer_header.jpg) no-repeat center/cover;
 }
 .prayer__header-inner {
   max-width: 1200px;
@@ -1154,7 +1186,7 @@ nav a:hover,
   word-break: keep-all;
   overflow-wrap: anywhere;
   padding: 4.375rem 0;
-  background: url(../images/top/pic_top_about01.png) no-repeat center/cover;
+  background: url(../images/top/pic_top_about01.jpg) no-repeat center/cover;
   color: #fff;
   text-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.6);
 }
@@ -1241,7 +1273,7 @@ nav a:hover,
   word-break: keep-all;
   overflow-wrap: anywhere;
   padding: 4.375rem 0;
-  background: url(../images/top/pic_top_about02.png) no-repeat center/cover;
+  background: url(../images/top/pic_top_about02.jpg) no-repeat center/cover;
   color: #fff;
   text-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.6);
 }
@@ -1362,7 +1394,7 @@ nav a:hover,
   position: absolute;
   inset: 1px;
   z-index: -1;
-  background: #915730 url("../images/common/bg_paper.png") no-repeat center/cover;
+  background: #915730 url("../images/common/bg_paper01.png") no-repeat center/cover;
   -webkit-clip-path: inherit;
           clip-path: inherit;
 }
@@ -1567,7 +1599,7 @@ nav a:hover,
 }
 
 .contact__header {
-  background: url(../images/top/pic_top_about01.png) no-repeat center/cover;
+  background: url(../images/contact/pic_contact_header.jpg) no-repeat center/cover;
   margin-bottom: 5rem;
 }
 .contact__header-inner {

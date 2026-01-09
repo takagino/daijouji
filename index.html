@@ -82,18 +82,23 @@
     <main class="main">
       <section class="message">
         <div class="message__inner">
-          <h2 class="message__title">大乗寺とは？</h2>
-          <div class="message__text">
-            <p>
-              400年続く<br />
-              歴史を持ちながら、<br />
-              現代の家族にも開かれたお寺。<br />
-              お参りしやすく、管理も安心。
-            </p>
-            <p>
-              地域に根ざした<br />
-              穏やかな場所。
-            </p>
+          <div class="message__content">
+            <h2 class="message__title">大乗寺とは？</h2>
+            <div class="message__text">
+              <p>
+                400年続く<br />
+                歴史を持ちながら、<br />
+                現代の家族にも開かれたお寺。<br />
+                お参りしやすく、管理も安心。
+              </p>
+              <p>
+                地域に根ざした<br />
+                穏やかな場所。
+              </p>
+            </div>
+          </div>
+          <div class="message__pic">
+            <img src="./images/top/img_message.png" alt="" />
           </div>
         </div>
       </section>
@@ -111,7 +116,11 @@
                 電車でもお車でも<wbr />いつでも気軽に訪れられる<wbr />安心の環境です。
               </p>
             </div>
-            <img src="./images/common/dummy.png" alt="" />
+            <img
+              class="top-cemetery__pic"
+              src="./images/cemetery/pic_cemetery01.jpg"
+              alt=""
+            />
             <a class="btn top-cemetery__btn" href="cemetery.html"
               >霊園詳細を確認</a
             >
@@ -126,8 +135,8 @@
       <section class="top-about">
         <article class="top-about__item">
           <img
-            class="top-about__pic"
-            src="./images/top/pic_top_about01.png"
+            class="top-about__pic01"
+            src="./images/top/pic_top_about01.jpg"
             alt=""
           />
           <div class="top-about__inner">
@@ -149,8 +158,8 @@
         </article>
         <article class="top-about__item">
           <img
-            class="top-about__pic"
-            src="./images/top/pic_top_about02.png"
+            class="top-about__pic02"
+            src="./images/top/pic_top_about02.jpg"
             alt=""
           />
           <div class="top-about__inner">
@@ -168,7 +177,7 @@
                   大乗寺は、そんな大切な祈りの時間を<wbr />丁寧にお支えします。
                 </p>
               </div>
-              <a class="btn top-about__btn" href="#">法事・法要</a>
+              <!-- <a class="btn top-about__btn" href="#">法事・法要</a> -->
             </div>
           </div>
         </article>
@@ -248,11 +257,13 @@
         </section>
         <div class="footer__bottom">
           <div class="footer__data">
-            <img
-              class="footer__logo"
-              src="./images/common/img_logo.png"
-              alt="明照山 大乗寺"
-            />
+            <a href="index.html">
+              <img
+                class="footer__logo"
+                src="./images/common/img_logo.png"
+                alt="明照山 大乗寺"
+              />
+            </a>
             <div class="footer__address">
               <p>〒464-0808 <br />愛知県名古屋市千種区星が丘山手501</p>
             </div>

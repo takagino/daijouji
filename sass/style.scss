@@ -391,7 +391,8 @@ nav a,
   }
 
   &__pattern {
-    background: $color-text url(../images/common/bg_paper.png) repeat center top;
+    background: $color-text url(../images/common/bg_paper01.png) repeat center
+      top;
 
     &-white {
       background-color: #fff;
@@ -707,10 +708,17 @@ nav a,
 
 .message {
   padding: rem(80) 0;
-  text-align: center;
 
   &__inner {
     @include inner();
+    display: grid;
+    gap: rem(50);
+
+    @include mq(desktop) {
+      grid-template-columns: repeat(2, auto);
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__title {
@@ -728,6 +736,16 @@ nav a,
 
   &__text {
     @include text-main();
+    text-align: center;
+
+    @include mq(desktop) {
+      text-align: left;
+    }
+  }
+
+  &__pic {
+    max-width: rem(400);
+    margin: auto;
   }
 }
 
@@ -746,6 +764,12 @@ nav a,
   &__text {
     margin-bottom: rem(60);
     @include text-main();
+  }
+
+  &__pic {
+    width: 100%;
+    aspect-ratio: 12/3;
+    object-fit: cover;
   }
 
   &__btn {
@@ -778,9 +802,24 @@ nav a,
     margin-left: auto;
   }
 
-  &__pic {
-    display: block;
+  &__pic01 {
+    width: 80%;
+    max-width: rem(1200);
+    aspect-ratio: 12/3;
+    object-fit: cover;
     margin-bottom: rem(50);
+    box-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.3);
+  }
+
+  &__pic02 {
+    display: block;
+    width: 80%;
+    max-width: rem(1200);
+    margin-left: auto;
+    aspect-ratio: 12/3;
+    object-fit: cover;
+    margin-bottom: rem(50);
+    box-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.3);
   }
 
   &__title {
@@ -837,7 +876,7 @@ nav a,
 
   &__header {
     padding: rem(80) 0 rem(200);
-    background: #fff url(../images/cemetery/pic_cemetery02.png) repeat center
+    background: #fff url(../images/cemetery/pic_cemetery02.png) no-repeat center
       bottom/cover;
     text-align: center;
 
@@ -1136,32 +1175,32 @@ nav a,
 
     img {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 4/3;
       object-fit: cover;
     }
 
     // 画像横の矢印（ダミー）
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: rem(40);
-      height: rem(40);
-      background-color: rgba(0, 0, 0, 0.4);
-      border-radius: 50%;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-    &::before {
-      left: rem(-20);
-    }
-    &::after {
-      right: rem(-20);
-      transform: translateY(-50%) rotate(180deg);
-    }
+    // &::before,
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    //   width: rem(40);
+    //   height: rem(40);
+    //   background-color: rgba(0, 0, 0, 0.4);
+    //   border-radius: 50%;
+    //   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z'/%3E%3C/svg%3E");
+    //   background-repeat: no-repeat;
+    //   background-position: center;
+    // }
+    // &::before {
+    //   left: rem(-20);
+    // }
+    // &::after {
+    //   right: rem(-20);
+    //   transform: translateY(-50%) rotate(180deg);
+    // }
   }
 
   &__text {
@@ -1215,6 +1254,17 @@ nav a,
     &-title {
       @include title-sub();
     }
+
+    &-text {
+      @include text-main();
+    }
+
+    &-label {
+      padding: rem(5) rem(10);
+      background-color: $color-text;
+      color: #fff;
+      text-align: center;
+    }
   }
 
   &__icon {
@@ -1236,7 +1286,8 @@ nav a,
 
 .prayer {
   &__header {
-    background: url(../images/top/pic_top_about01.png) no-repeat center/cover;
+    background: url(../images/prayer/pic_prayer_header.jpg) no-repeat
+      center/cover;
 
     &-inner {
       @include inner();
@@ -1278,7 +1329,7 @@ nav a,
   &__title {
     @include title-sub();
     padding: rem(70) 0;
-    background: url(../images/top/pic_top_about01.png) no-repeat center/cover;
+    background: url(../images/top/pic_top_about01.jpg) no-repeat center/cover;
     color: #fff;
     text-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.6);
   }
@@ -1367,7 +1418,7 @@ nav a,
   &__title {
     @include title-sub();
     padding: rem(70) 0;
-    background: url(../images/top/pic_top_about02.png) no-repeat center/cover;
+    background: url(../images/top/pic_top_about02.jpg) no-repeat center/cover;
     color: #fff;
     text-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.6);
   }
@@ -1521,7 +1572,7 @@ nav a,
       position: absolute;
       inset: 1px;
       z-index: -1;
-      background: $color-main url('../images/common/bg_paper.png') no-repeat
+      background: $color-main url('../images/common/bg_paper01.png') no-repeat
         center / cover;
       clip-path: inherit;
     }
@@ -1681,7 +1732,8 @@ nav a,
 
 .contact {
   &__header {
-    background: url(../images/top/pic_top_about01.png) no-repeat center/cover;
+    background: url(../images/contact/pic_contact_header.jpg) no-repeat
+      center/cover;
     margin-bottom: rem(80);
 
     &-inner {
