@@ -998,6 +998,10 @@ nav a:hover,
   }
 }
 .popup__lead {
+  display: grid;
+  row-gap: 1.25rem;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
   font-size: 1.125rem;
   font-weight: 700;
   margin-bottom: 1.25rem;
@@ -1086,7 +1090,7 @@ nav a:hover,
   }
 }
 .features__item {
-  padding: 2.5rem;
+  padding: 3.75rem 2.5rem;
   border-radius: 10px;
   background-color: #fff1df;
 }

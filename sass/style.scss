@@ -1136,6 +1136,7 @@ nav a,
   }
 
   &__lead {
+    @include text-main();
     font-size: rem(18);
     font-weight: 700;
     margin-bottom: rem(20);
@@ -1255,7 +1256,7 @@ nav a,
   }
 
   &__item {
-    padding: rem(40);
+    padding: rem(60) rem(40);
     border-radius: 10px;
     background-color: $color-bg;
 
