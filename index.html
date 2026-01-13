@@ -211,11 +211,23 @@
               </li>
             </ol>
             <a class="btn reserve__btn" href="contact.html">予約する</a>
-            <a href="tel:052-781-1348"
-              ><img
-                src="./images/common/bnr_contact.png"
-                alt="お電話でのご予約・お問い合わせは「052-781-1348（対応可能時間／8時〜16時）」"
-            /></a>
+            <a href="tel:052-781-1348">
+              <picture>
+                <source
+                  srcset="./images/common/bnr_contact.png"
+                  media="(min-width: 768px)"
+                  type="image/jpg"
+                />
+                <source
+                  srcset="./images/common/bnr_contact_sm.png"
+                  type="image/jpg"
+                />
+                <img
+                  src="./images/common/bnr_contact.png"
+                  alt="お電話でのご予約・お問い合わせは「052-781-1348（対応可能時間／8時〜16時）」"
+                />
+              </picture>
+            </a>
           </div>
         </section>
       </div>

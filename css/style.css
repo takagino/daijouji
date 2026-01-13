@@ -14,7 +14,7 @@ body {
   font-size: 1rem;
   font-family: "dnp-shuei-gothic-kin-std", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
   font-weight: 600;
-  line-height: 2.1875;
+  line-height: 2;
   letter-spacing: 0.35em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1080,7 +1080,7 @@ nav a:hover,
   display: grid;
   gap: 3.125rem;
 }
-@media (width >= 768px) {
+@media (width >= 1200px) {
   .features__list {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1102,6 +1102,9 @@ nav a:hover,
   row-gap: 1.25rem;
   word-break: keep-all;
   overflow-wrap: anywhere;
+}
+.features__item-text p {
+  text-align: center;
 }
 .features__item-label {
   padding: 0.3125rem 0.625rem;
@@ -1137,6 +1140,7 @@ nav a:hover,
   width: fit-content;
   padding: 3.125rem 6.25rem;
   background-color: #fff;
+  text-align: center;
 }
 .prayer__about {
   padding: 6.25rem;
@@ -1481,6 +1485,7 @@ nav a:hover,
   row-gap: 1.25rem;
   word-break: keep-all;
   overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .reserve-info {
@@ -1617,6 +1622,7 @@ nav a:hover,
   width: fit-content;
   padding: 3.125rem 6.25rem;
   background-color: #fff;
+  text-align: center;
 }
 
 .form__inner {
