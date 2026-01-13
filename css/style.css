@@ -633,8 +633,13 @@ nav a:hover,
   }
 }
 .message__pic {
-  max-width: 25rem;
+  max-width: 18.75rem;
   margin: auto;
+}
+@media (width >= 1200px) {
+  .message__pic {
+    max-width: 21.875rem;
+  }
 }
 
 .top-cemetery {
