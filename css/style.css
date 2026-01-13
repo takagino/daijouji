@@ -1417,6 +1417,12 @@ nav a:hover,
   -webkit-clip-path: inherit;
           clip-path: inherit;
 }
+.flow__info-inner {
+  display: grid;
+  row-gap: 1.25rem;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
 .flow__info-title {
   margin-bottom: 1.875rem;
   font-size: 1.25rem;

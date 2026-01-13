@@ -1600,6 +1600,10 @@ nav a,
       clip-path: inherit;
     }
 
+    &-inner {
+      @include text-main();
+    }
+
     &-title {
       @include title-sub();
       margin-bottom: 0;
