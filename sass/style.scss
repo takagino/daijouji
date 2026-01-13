@@ -1414,6 +1414,7 @@ nav a,
 
     &-text {
       @include text-main();
+      text-align: center;
     }
   }
 }

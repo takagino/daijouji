@@ -1263,6 +1263,7 @@ nav a:hover,
   row-gap: 1.25rem;
   word-break: keep-all;
   overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .memorial {
