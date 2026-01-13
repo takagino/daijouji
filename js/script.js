@@ -77,4 +77,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  const boxes = document.querySelectorAll('.fadein');
+
+  const options = {
+    root: null,
+    rootMargin: '-30% 0px',
+    threshold: 0,
+  };
+
+  const fadein = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-active');
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(fadein, options);
+
+  boxes.forEach((box) => {
+    observer.observe(box);
+  });
 });

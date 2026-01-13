@@ -710,6 +710,18 @@ nav a,
   }
 }
 
+.fadein {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 0.3s;
+
+  // アクティブ時
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 // =================================================================
 //  Index
 // =================================================================

@@ -573,6 +573,16 @@ nav a:hover,
   text-align: center;
 }
 
+.fadein {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 0.3s;
+}
+.fadein.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
 .message {
   padding: 5rem 0;
 }
