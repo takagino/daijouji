@@ -1312,11 +1312,11 @@ nav a,
   }
 
   &__about {
-    padding: rem(100);
+    padding: rem(100) 0;
     text-align: center;
 
     &-inner {
-      @include inner();
+      @include inner(750px);
     }
 
     &-title {
