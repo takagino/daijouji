@@ -784,7 +784,7 @@ nav a:hover,
 }
 @media (width >= 768px) {
   .cemetery__header {
-    padding-bottom: 18.75rem;
+    padding-bottom: 28.125rem;
   }
 }
 .cemetery__inner {
