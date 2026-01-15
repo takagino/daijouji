@@ -872,7 +872,7 @@ nav a,
 // =================================================================
 
 #cemetery {
-  background: url(../images/cemetery/pic_cemetery01.jpg) no-repeat center
+  background: url(../images/cemetery/pic_cemetery03.jpg) no-repeat center
     top/cover;
   background-attachment: fixed;
 }
@@ -899,7 +899,7 @@ nav a,
   }
 
   &__header {
-    padding: rem(80) 0 rem(200);
+    padding: rem(80) 0 rem(300);
     background: #fff url(../images/cemetery/pic_cemetery02.png) no-repeat center
       bottom/cover;
     text-align: center;
@@ -920,6 +920,9 @@ nav a,
 
   &__text {
     @include text-main();
+    p {
+      text-shadow: 0 0 rem(5) rgba(255, 255, 255, 1);
+    }
   }
 }
 

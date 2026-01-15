@@ -755,7 +755,7 @@ nav a:hover,
 }
 
 #cemetery {
-  background: url(../images/cemetery/pic_cemetery01.jpg) no-repeat center top/cover;
+  background: url(../images/cemetery/pic_cemetery03.jpg) no-repeat center top/cover;
   background-attachment: fixed;
 }
 
@@ -778,7 +778,7 @@ nav a:hover,
   background-color: #fff;
 }
 .cemetery__header {
-  padding: 5rem 0 12.5rem;
+  padding: 5rem 0 18.75rem;
   background: #fff url(../images/cemetery/pic_cemetery02.png) no-repeat center bottom/cover;
   text-align: center;
 }
@@ -806,6 +806,9 @@ nav a:hover,
   row-gap: 1.25rem;
   word-break: keep-all;
   overflow-wrap: anywhere;
+}
+.cemetery__text p {
+  text-shadow: 0 0 0.3125rem rgb(255, 255, 255);
 }
 
 .guide {
